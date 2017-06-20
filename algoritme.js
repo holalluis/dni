@@ -1,8 +1,8 @@
 /*
-	algoritme per convertir el DNI a una paraula de 4 silabes
-	permet recordar-lo més fàcilment
-*/
-/*
+	Algoritme per convertir un DNI a una paraula de 4 síl·labes.
+
+	Permet recordar-lo més fàcilment.
+
 	FORMAT DNI:
 	8 xifres + lletra de control
 	lletra de control = residu de dividir dni per 23 (wikipedia)
@@ -13,17 +13,16 @@
 	control=['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'];
 	lletra=control[40364541 % 23];
 	print(lletra) //resultat: R
-*/
 
-/*
-	sortida: alternar consonants i vocals
-	vocs='aeiou';//5
-	cons='bcdfgjklmnpqrstvwxyz';//20
-	nombre de consonants = 20
-	nombre de vocals = 5
-	combinacions de silabes = 20*5 = 100 (00-99)
-	8 lletres = [cv cv cv cv]
-	4 silabes (consonant-vocal)
+	OBJECTIU: 
+	formar una paraula alternant consonants i vocals
+
+	vocals     'aeiou'
+	consonants 'bcdfgjklmnpqrstvwxyz'
+	nombre de consonants : 20
+	nombre de vocals     : 5
+	combinacions de silabes : 20*5 = 100 (00, 01, .. , 98, 99)
+	8 lletres = 4 síl·labes (repeticions consonant-vocal)
 	agafar numeros de 2 en 2, 4 vegades
 */
 
@@ -51,6 +50,7 @@ var slbs=[
 	'za','ze','zi','zo','zu',
 ];
 
+//codifica i descodifica
 function encode(dni){
 	dni=dni.toString();
 	if(dni.length!=8){
@@ -87,17 +87,11 @@ function decode(paraula){
 	return resultat;
 }
 
-//utilitats
-function qs(selector){
-	return document.querySelector(selector);
-}
-
-/* testos
+/* proves
 encode('40364541')
 encode('00000001')
 decode('melanoma')
-decode('mierdaca')
-decode('putavida')
+decode('paraulaa')
 decode('putabida')
 encode('54700210')
 */
