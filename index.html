@@ -1,0 +1,93 @@
+<!doctype html>
+<html><head>
+	<meta charset=utf-8>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="description" content="convertir DNI a una palabra">
+	<script src="algoritme.js"></script>
+	<style>
+		body{
+			max-width:60em;
+			font-family:monospace;
+		}
+		p{
+			text-align:justify;
+			text-justify:distribute;
+		}
+	</style>
+</head><body>
+
+<h1>Convertir <br> DNI a paraula</h1>
+
+<p>
+	El cervell humà no és bo recordant números, però sí paraules.
+	Aquest principi és la base d'aquesta mini aplicació.
+	Aquí sota pots convertir qualsevol número de 8 xifres (com ara el teu DNI) en una paraula de 4 síl·labes (8 lletres) fàcilment recordable.
+</p>
+
+<div id=inputs_container>
+	<style>
+		#inputs_container {
+			font-size:18px;
+		}
+		#input_encode, #input_decode {
+			font-size:17px;
+			padding:0.5em;
+			border:1px solid #ccc;
+			outline:none;
+			font-family:monospace;
+		}
+		#inputs_container button {
+			border:1px solid #ccc;
+			padding:8px 5px;
+			background:#eee;
+		}
+	</style>
+	<div>
+		Convertir <b>DNI</b> a <b>PARAULA</b> <br>
+		<input id=input_encode placeholder="dni sense la lletra" maxlength=8>
+		<button onclick="qs('#input_decode').value=encode(qs('#input_encode').value)">Convertir</button>
+	</div>
+	<div>
+		Convertir <b>PARAULA</b> a <b>DNI</b> <br>
+		<input id=input_decode placeholder="paraula de 8 lletres" maxlength=8>
+		<button onclick="qs('#input_encode').value=decode(qs('#input_decode').value)">Convertir</button>
+	</div>
+</div>
+
+<div id=explicacio>
+	<style>
+		#explicacio {
+			margin-top:50px;
+		}
+	</style>
+	<p>
+		<b>Explicació algoritme</b>:
+		Es pot dividir un número de 8 xifres en 4 números de 2 xifres.
+		Aquests 4 números de 2 xifres tindran valors de 00 a 99.
+		Combinant 20 possibles consonants 
+		(BCDFGJKLMNPQRSTVWXYZ)
+		amb 5 possibles vocals
+		(AEIOU), 
+		obtenim 100 possibles valors (00 a 99).
+		Per tant, podem associar els 4 números de 2 xifres a 4 síl·labes, a partir del següent <b>diccionari</b>:
+	</p>
+	<ul>
+		<script>
+			var i=0;
+			slbs.forEach(s=>{
+				var index = i<10 ? "0"+i : i;
+				document.write("<li>"+index+" &rarr; "+s);
+				i++;
+			});
+		</script>
+	</ul>
+</div>
+
+<div style=margin-bottom:50px></div>
+
+<p style=color:#666;font-size:11px;margin:5px>
+	Nota: aquesta web no fa servir cookies, i no guarda cap tipus d'informació.
+	Pots veure'n el codi font (com s'ha programat) aquí: 
+	<a href="https://github.com/holalluis/dni">github holalluis</a>
+</p>
+
