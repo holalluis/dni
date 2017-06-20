@@ -56,12 +56,13 @@
 
 <div id=inputs_container>
 	<div>
-		Convertir <b>DNI</b> a <b>PARAULA</b> <br>
+		<b>DNI</b> a <b>PARAULA</b> <br>
 		<input id=input_encode placeholder="dni sense la lletra" maxlength=8 onkeypress="escolta13(event,'btn_encode')">
 		<button id=btn_encode onclick="qs('#input_decode').value=encode(qs('#input_encode').value)">Convertir</button>
 	</div>
+	<!--espai--><div style=margin:10px></div>
 	<div>
-		Convertir <b>PARAULA</b> a <b>DNI</b> <br>
+		<b>PARAULA</b> a <b>DNI</b> <br>
 		<input id=input_decode placeholder="paraula de 8 lletres" maxlength=8 onkeypress="escolta13(event,'btn_decode')">
 		<button id=btn_decode onclick="qs('#input_encode').value=decode(qs('#input_decode').value)" onkeypress="escolta13(event,this)">Convertir</button>
 	</div>
